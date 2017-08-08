@@ -1,0 +1,424 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Tx.Core</name>
+    </assembly>
+    <members>
+        <member name="M:System.Reactive.ByteArrayExtensions.ToHexDump(System.Byte[])">
+            <summary>
+            Displays the byte array as hex-dump, like within a debugger
+            </summary>
+            <param name="bytes">array to display as hex</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.CompositeDeserializer`1.OnCompleted">
+            <summary>
+            Notifies the observer that the provider has finished sending push-based notifications.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.CompositeDeserializer`1.OnError(System.Exception)">
+            <summary>
+            Notifies the observer that the provider has experienced an error condition.
+            </summary>
+            <param name="error">An object that provides additional information about the error.</param>
+        </member>
+        <member name="M:System.Reactive.CompositeDeserializer`1.OnNext(`0)">
+            <summary>
+            Provides the observer with new data.
+            </summary>
+            <param name="value">The current notification information.</param>
+        </member>
+        <member name="M:System.Reactive.CsvExtensions.TextFileWriter`1.OnCompleted">
+            <summary>
+            Notifies the observer that the provider has finished sending push-based notifications.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.CsvExtensions.TextFileWriter`1.OnError(System.Exception)">
+            <summary>
+            Notifies the observer that the provider has experienced an error condition.
+            </summary>
+            <param name="error">An object that provides additional information about the error.</param>
+        </member>
+        <member name="M:System.Reactive.CsvExtensions.TextFileWriter`1.OnNext(`0)">
+            <summary>
+            Provides the observer with new data.
+            </summary>
+            <param name="value">The current notification information.</param>
+        </member>
+        <member name="T:System.Reactive.Demultiplexor">
+            <summary>
+                Efficiently demultiplexes input sequence of objects into output sequences of fixed types
+                The callbacks on the output sequences are called in the order of occurence of input events
+                OnNext of the Demultiplexor should not be called from multiple threads
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Demultiplexor.OnCompleted">
+            <summary>
+            Notifies the observer that the provider has finished sending push-based notifications.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Demultiplexor.OnError(System.Exception)">
+            <summary>
+            Notifies the observer that the provider has experienced an error condition.
+            </summary>
+            <param name="error">An object that provides additional information about the error.</param>
+        </member>
+        <member name="M:System.Reactive.Demultiplexor.OnNext(System.Object)">
+            <summary>
+            Provides the observer with new data.
+            </summary>
+            <param name="inputObject">The current notification information.</param>
+        </member>
+        <member name="M:System.Reactive.Demultiplexor.GetObservable``1">
+            <summary>
+                Returns an output sequence of given type
+            </summary>
+            <typeparam name="TOutput">The desired type</typeparam>
+            <returns>Sequence in which all events are of type TOutput</returns>
+        </member>
+        <member name="M:System.Reactive.Demultiplexor.OutputSubject`1.OnCompleted">
+            <summary>
+            Notifies the observer that the provider has finished sending push-based notifications.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Demultiplexor.OutputSubject`1.OnError(System.Exception)">
+            <summary>
+            Notifies the observer that the provider has experienced an error condition.
+            </summary>
+            <param name="error">An object that provides additional information about the error.</param>
+        </member>
+        <member name="M:System.Reactive.Demultiplexor.OutputSubject`1.OnNext(System.Object)">
+            <summary>
+            Provides the observer with new data.
+            </summary>
+            <param name="value">The current notification information.</param>
+        </member>
+        <member name="T:System.Reactive.Envelope">
+            <summary>
+            Represents the event sent and received from a stream. It contains the body of the event, various metadata describing the event.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.Envelope.#ctor(System.DateTimeOffset,System.DateTimeOffset,System.String,System.String,System.String,System.Byte[],System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Reactive.Envelope"/> class.
+            </summary>
+            <param name="occurrenceTime">The occurrence time.</param>
+            <param name="receivedTime">The received time.</param>
+            <param name="protocol">The protocol.</param>
+            <param name="source">The source.</param>
+            <param name="typeId">The type identifier.</param>
+            <param name="payload">The payload.</param>
+            <param name="payloadInstance">The payload instance.</param>
+        </member>
+        <member name="P:System.Reactive.Envelope.OccurrenceTime">
+            <summary>
+            Gets the time of occurrence of the event.
+            </summary>
+            <value>
+            The receive file time.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Envelope.ReceivedTime">
+            <summary>
+            Gets the time that the event was received.
+            </summary>
+            <value>
+            The receive file time.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Envelope.Protocol">
+            <summary>
+            Gets the protocol used to serialize the payload.
+            </summary>
+            <value>
+            The protocol identifier.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Envelope.Source">
+            <summary>
+            Gets the source identifier.
+            </summary>
+            <value>
+            The source identifier.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Envelope.TypeId">
+            <summary>
+            Gets the type identifier of the payload. It is used to uniquely identify each object type the serialized object represents.
+            </summary>
+            <value>
+            The type identifier of the payload.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Envelope.Payload">
+            <summary>
+            Gets the the binary formatted event payload.
+            </summary>
+            <value>
+            The event payload.
+            </value>
+        </member>
+        <member name="P:System.Reactive.Envelope.PayloadInstance">
+            <summary>
+            Gets the transport object representing the event. It is used to access the event object without deserializion if it is available.
+            </summary>
+            <value>
+            The transport object.
+            </value>
+        </member>
+        <member name="T:System.Reactive.IEnvelope">
+            <summary>
+            Represents the event sent and received from a stream. It contains the body of the event, various metadata describing the event.
+            </summary>
+        </member>
+        <member name="P:System.Reactive.IEnvelope.OccurrenceTime">
+            <summary>
+            Gets the time of occurrence of the event.
+            </summary>
+            <value>
+            The receive file time.
+            </value>
+        </member>
+        <member name="P:System.Reactive.IEnvelope.ReceivedTime">
+            <summary>
+            Gets the time that the event was received.
+            </summary>
+            <value>
+            The receive file time.
+            </value>
+        </member>
+        <member name="P:System.Reactive.IEnvelope.Protocol">
+            <summary>
+            Gets the protocol used to serialize the payload.
+            </summary>
+            <value>
+            The protocol identifier.
+            </value>
+        </member>
+        <member name="P:System.Reactive.IEnvelope.Source">
+            <summary>
+            Gets the source identifier.
+            </summary>
+            <value>
+            The source identifier.
+            </value>
+        </member>
+        <member name="P:System.Reactive.IEnvelope.TypeId">
+            <summary>
+            Gets the type identifier of the payload. It is used to uniquely identify each object type the serialized object represents.
+            </summary>
+            <value>
+            The type identifier of the payload.
+            </value>
+        </member>
+        <member name="P:System.Reactive.IEnvelope.Payload">
+            <summary>
+            Gets the the binary formatted event payload.
+            </summary>
+            <value>
+            The event payload.
+            </value>
+        </member>
+        <member name="P:System.Reactive.IEnvelope.PayloadInstance">
+            <summary>
+            Gets the transport object representing the event. It is used to access the event object without deserializion if it is available.
+            </summary>
+            <value>
+            The transport object.
+            </value>
+        </member>
+        <member name="M:System.Reactive.BufferQueue`1.OnNext(`0)">
+            <summary>
+            Provides the observer with new data.
+            </summary>
+            <param name="value">The current notification information.</param>
+        </member>
+        <member name="M:System.Reactive.TypeOccurenceAggregator`2.OnNext(`0)">
+            <summary>
+            Provides the observer with new data.
+            </summary>
+            <param name="value">The current notification information.</param>
+        </member>
+        <member name="T:System.Reactive.NonDetachObservable`1">
+            <summary>
+            This is like AnonimosObservable in Rx, but without the auto-detach logic
+            </summary>
+        </member>
+        <member name="T:System.Reactive.PlaybackBase">
+            <summary>
+                Playback serves two purposes:
+                (1) Replay the history from one or more trace/log files, by turning the event occurence records into C# instances
+                (2) Deliver events from fixed set of real time sessions as C# instances
+                The invariants that Playback preserves are:
+                (a) The order within one input file/session (inputs events must be in order of occurence, and have increasing timestamps)
+                (b) The illusion of global order - merging different files/streams on timestamp
+            </summary>
+        </member>
+        <member name="M:System.Reactive.PlaybackBase.#ctor">
+            <summary>
+                Constructor
+            </summary>
+        </member>
+        <member name="P:System.Reactive.PlaybackBase.StartTime">
+            <summary>
+                Gets or sets the start time for the playback
+                The setter must be called before any operators that take Scheduler are used
+                
+                Playback will only deliver event after the given start time
+            </summary>
+        </member>
+        <member name="P:System.Reactive.PlaybackBase.KnownTypes">
+            <summary>
+                The event types that are known
+                If you do playback.GetObservable&lt;A&gt;();  playback.GetObservable&lt;B&gt;();
+                the known types will be A and B
+                Only known event types can be formatted to text
+                Be sure to set the known types before calling Start() or Run()
+            </summary>
+        </member>
+        <member name="P:System.Reactive.PlaybackBase.ExecutionDuration">
+            <summary>
+                The time elapsed
+                - from calling Start() or Run(),
+                - to the current time (if processing is in progress) or the end of processing (e.g. Run() returns)
+            </summary>
+        </member>
+        <member name="M:System.Reactive.PlaybackBase.System#Reactive#IPlaybackConfiguration#AddInput``1(System.Linq.Expressions.Expression{System.Func{System.IObservable{``0}}},System.Type[])">
+            <summary>
+                Low level method for adding input sequence to the playback
+                Usually, this will be called only from extension methods of Playback
+            </summary>
+            <typeparam name="TInput">Universal type that can can contain events of different actual (static) types</typeparam>
+            <param name="createInput">How to create the input observalbe</param>
+            <param name="typeMaps">The available type map types</param>
+        </member>
+        <member name="M:System.Reactive.PlaybackBase.System#Reactive#IPlaybackConfiguration#AddInput``1(System.Linq.Expressions.Expression{System.Func{System.IObservable{``0}}},System.Reactive.ITypeMap{``0}[])">
+            <summary>
+                Low level method for adding input sequence to the playback
+                Usually, this will be called only from extension methods of Playback
+            </summary>
+            <typeparam name="TInput">Universal type that can can contain events of different actual (static) types</typeparam>
+            <param name="createInput">How to create the input observalbe</param>
+            <param name="typeMaps">The available type maps (local instances)</param>
+        </member>
+        <member name="P:System.Reactive.PlaybackBase.Scheduler">
+            <summary>
+                Scheduler that represents virtual time as per the timestamps on the events
+                Use playback.Scheduler as argument to temporal primitives like Window or Take
+            </summary>
+        </member>
+        <member name="M:System.Reactive.PlaybackBase.Start">
+            <summary>
+                Starts the playback and returns immediately
+                The main use case is real-time feeds.
+            </summary>
+        </member>
+        <member name="M:System.Reactive.PlaybackBase.Run">
+            <summary>
+                Starts the playback, and blocks until rocessing of input is completed
+            </summary>
+        </member>
+        <member name="M:System.Reactive.PlaybackBase.BufferOutput``1(System.IObservable{``0})">
+            <summary>
+                BufferOutput lets you accumulate a small collection that is the result of stream processing
+            </summary>
+            <typeparam name="TOutput">The event type of interest</typeparam>
+            <param name="observavle">the results to accumulate</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reactive.Playback.GetObservable``1">
+            <summary>
+                Call this to get just the events of given type
+            </summary>
+            <typeparam name="TOutput">The type of interest</typeparam>
+            <returns>Sequence of events of type TOutput from all inputs added to the playback</returns>
+        </member>
+        <member name="M:System.Reactive.PlaybackConfigurationExtensions.AddInput(System.Reactive.IPlaybackConfiguration,System.Collections.Generic.IEnumerable{System.Reactive.Timestamped{System.Object}})">
+            <summary>
+                Method for adding input sequence that contains .NET objects to the playbackConfiguration
+            </summary>
+            <param name="playbackConfiguration">The playback instance.</param>
+            <param name="source">The input sequence.</param>
+        </member>
+        <member name="M:System.Reactive.PlaybackConfigurationExtensions.AddCsvInput``1(System.Reactive.IPlaybackConfiguration,System.Func{System.Reactive.Record,``0},System.Func{System.Reactive.Record,System.DateTimeOffset},System.String[])">
+            <summary>
+                Method for adding input sequence from CSV files.
+            </summary>
+            <param name="playback">The playback instance.</param>
+            <param name="transformation">Transformation function converting Record to T</param>
+            <param name="timestampSelector">Timestamp selector function.</param>
+            <param name="files">CSV files containing events ordered by timestamp.</param>
+        </member>
+        <member name="M:System.Reactive.PlaybackConfigurationExtensions.AddCsvInput``1(System.Reactive.IPlaybackConfiguration,System.Char,System.Int32,System.Func{System.Reactive.Record,``0},System.Func{System.Reactive.Record,System.DateTimeOffset},System.String[])">
+            <summary>
+                Method for adding input sequence from custom CSV files.
+            </summary>
+            <param name="playback">The playback instance.</param>
+            <param name="delimiter"></param>
+            <param name="numberRecordsToSkip"></param>
+            <param name="transformation">Transformation function converting Record to T</param>
+            <param name="timestampSelector">Timestamp selector function.</param>
+            <param name="files">CSV files containing events ordered by timestamp.</param>
+        </member>
+        <member name="T:System.Reactive.TimeSource`1">
+            <summary>
+                TimeSource constructs an "Virtual Time" scheduler based on expression over the event data
+            </summary>
+            <typeparam name="T">Type of the events in the sequence</typeparam>
+        </member>
+        <member name="M:System.Reactive.TimeSource`1.#ctor(System.IObservable{`0},System.Func{`0,System.DateTimeOffset})">
+            <summary>
+                Constructor
+            </summary>
+            <param name="source">The event sequence to use as source</param>
+            <param name="timeFunction">Expression to extract the timestamp</param>
+        </member>
+        <member name="M:System.Reactive.TypeIdentifierHelpers.GetTypeIdentifier(System.Object)">
+            <summary>
+            Gets the type identifier.
+            </summary>
+            <param name="instance">The instance.</param>
+            <returns>The type identifier.</returns>
+            <exception cref="T:System.ArgumentNullException">instance is null.</exception>
+        </member>
+        <member name="M:System.Reactive.TypeIdentifierHelpers.GetTypeIdentifier(System.Type)">
+            <summary>
+            Gets the type identifier.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>The type identifier.</returns>
+            <exception cref="T:System.ArgumentNullException">type is null.</exception>
+        </member>
+        <member name="M:System.Reactive.TypeIdentifierHelpers.GetTypeIdentifier``1">
+            <summary>
+            Gets the type identifier.
+            </summary>
+            <typeparam name="T">Type of object.</typeparam>
+            <returns>The type identifier.</returns>
+        </member>
+        <member name="M:System.Reactive.TypeIdentifierHelpers.GenerateGuidFromName(System.String)">
+            <summary>
+            Generates the type identifier based on the specified name.
+            </summary>
+            <param name="name">The name.</param>
+            <returns>The type identifier.</returns>
+        </member>
+        <member name="M:Tx.Core.Converter`2.OnNext(`0)">
+            <summary>
+            Provides the observer with new data.
+            </summary>
+            <param name="value">The current notification information.</param>
+        </member>
+        <member name="M:Tx.Core.Converter`2.OnError(System.Exception)">
+            <summary>
+            Notifies the observer that the provider has experienced an error condition.
+            </summary>
+            <param name="error">An object that provides additional information about the error.</param>
+        </member>
+        <member name="M:Tx.Core.Converter`2.OnCompleted">
+            <summary>
+            Notifies the observer that the provider has finished sending push-based notifications.
+            </summary>
+        </member>
+    </members>
+</doc>
