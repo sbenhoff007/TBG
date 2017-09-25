@@ -21,7 +21,7 @@ namespace ShelleyBenhoff.Controllers
             var iisLog = W3CEnumerable.FromFile(logfilePath);
             List<ReportModel> report = new List<ReportModel>();
             
-            foreach (var line in iisLog.Where(x => !string.IsNullOrEmpty(x.c_ip) && !x.c_ip.Contains("207.114") && x.s_port == "80" && x.cs_method == "GET")
+            foreach (var line in iisLog.Where(x => !string.IsNullOrEmpty(x.c_ip) && !x.c_ip.StartsWith("207.114") && x.s_port == "80" && x.cs_method == "GET")
                 .GroupBy(x => x.c_ip)        
                 .Select(group => new {
                     Counter = group.Count(),
